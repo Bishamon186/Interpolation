@@ -22,21 +22,22 @@
                 y = tan(x)           
         </p>
 
-        <p align="left">
+        <p align="center">
  		 Выберете набор значений "х" и "y": 
  		</p>
-<!-- Вопросы:
-1)Уточнить насчет ovkalyonova@corp.ifmo.ru
-2) Выяснить почту, в которую заходят и хотябы отвечают 
-3) Какие точки брать для основной функции? те же пять точек? 
-4) Графики будут на разных сетках
-5) Сколько функций  -->
  		
- 		<p>
-       		<input  type="radio" name="Rb" value="1"> №1        	
-        </p>
+        <table  width="100%" align="center">
+
+        <tr>
+        <td width="25%"><input  type="radio" name="Rb" value="1"> №1 </td>
+        <td width="25%"><input  type="radio" name="Rb" value="2"> №2</td>
+        <td width="25%"><input  type="radio" name="Rb" value="3"> №3</td>
+        <td width="25%"><input  type="radio" name="Rb" value="4"> №4</td>
+        </tr>
         
-        <table border="1">       
+        <tr>
+        <td width="25%">
+        <table border="1" width="100%" align="center">       
         <tr>
         	<th class = "th">X</th><th class = "th">Y</th>
         </tr>       
@@ -56,15 +57,99 @@
         	<td class="td">1,5</td><td class="td">14,1014</td>
         </tr>    
  	    </table>
+        </td>
 
-        <p>
-        <button type="submit" OnClick="check();"> Интерполировать функцию </button>
+        <td width="25%">
+        <table border="1" width="100%" align="center">       
+        <tr>
+            <th class = "th">X</th><th class = "th">Y</th>
+        </tr>       
+        <tr>
+            <td class="td">-1,5</td><td class="td">-14,1014</td>
+        </tr>          
+        <tr>
+            <td class="td">-0,75</td><td class="td">-0,9315</td>
+        </tr>   
+        <tr>
+            <td class="td" >0</td><td class="td">0</td>
+        </tr>
+        <tr>
+            <td class="td" >0,75</td><td class="td">0,9316</td>
+        </tr>
+        <tr>
+            <td class="td">1,5</td><td class="td">14,1014</td>
+        </tr>    
+        </table>
+        </td>
+
+        <td width="25%">
+        <table border="1" width="100%" align="center">       
+        <tr>
+            <th class = "th">X</th><th class = "th">Y</th>
+        </tr>       
+        <tr>
+            <td class="td">-1,5</td><td class="td">-14,1014</td>
+        </tr>          
+        <tr>
+            <td class="td">-0,75</td><td class="td">-0,9315</td>
+        </tr>   
+        <tr>
+            <td class="td" >0</td><td class="td">0</td>
+        </tr>
+        <tr>
+            <td class="td" >0,75</td><td class="td">0,9316</td>
+        </tr>
+        <tr>
+            <td class="td">1,5</td><td class="td">14,1014</td>
+        </tr>    
+        </table>
+        </td>
+
+        <td width="25%">
+        <table border="1" width="100%" align="center">       
+        <tr>
+            <th class = "th">X</th><th class = "th">Y</th>
+        </tr>       
+        <tr>
+            <td class="td">-1,5</td><td class="td">-14,1014</td>
+        </tr>          
+        <tr>
+            <td class="td">-0,75</td><td class="td">-0,9315</td>
+        </tr>   
+        <tr>
+            <td class="td" >0</td><td class="td">0</td>
+        </tr>
+        <tr>
+            <td class="td" >0,75</td><td class="td">0,9316</td>
+        </tr>
+        <tr>
+            <td class="td">1,5</td><td class="td">14,1014</td>
+        </tr>    
+        </table>
+        </td>
+
+        </tr>    
+
+        </table>
+
+        <p align="center">
+        <button type="submit" OnClick="check();" > Интерполировать функцию </button>
         </p>
 
+        <p align="left">
+        Вычислить значение интерполированного многочлена в точке х:
+        </p>
+        <p><input id="number" type="number" placeholder="Введите значение Х"></p>
+        <p><input type="submit" value="Ок" id="Ok"  OnClick="checkOk();"></p>
+        <p align="left">
+         <div id="F(x)"></div>
+        </p>
+
+       
 
 <div id="chart1"></div>
 <div id="chart2"></div>
-
+<div id="status"></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script  src="Interpolation.js">
  </script>
