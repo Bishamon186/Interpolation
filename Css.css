@@ -1,10 +1,4 @@
-.hat {
-	background-image: url(background.jpg);
-	font-size: 100%;
-	text-align:left;
-	font-family:sans-serif; 
-	color: black;
-}
+
 
 .th {
 	font-size: 200%;
@@ -12,24 +6,26 @@
   width: 50%;
 }
 
-.td {
-  font-size: 100%;
-  text-align:left;
-  width: 50%;
-}
 
-.body{
-	background-image: url(4.jpg);
-}
+
+
 
 table {
 	width: 25%;
 
 }
 
+.pos1
+{
+	position:relative;
+	
+	top:-96px;
+}
+.pos2
+{
+	position:relative;
+	
+	top:-72px;
+}
 
-.Ch {
-  transform:scale(1.3);
-  cursor:pointer;
-  }
 
