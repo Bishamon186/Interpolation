@@ -86,87 +86,75 @@ function checkOk(){
 
 function InterpolateLagrangePolynomial(NumbXValue)
 {
-  var xValuesOriginalFunc = [];
+  var xValuesOriginalFunc = []; //координаты точек данной функции
   var yValuesOriginalFunc = [];
-  var yValuesInterpolatedFunction=[];
-  var xValuePoint = [];
-  var yValuePoint = []
+  var yValuesInterpolatedFunction=[]; //координаты точек интерполированной функции
   var xValuesInterpolatedFunction = [];
-  var size
+  var xValuePoint = [];	//узлы интерполяции
+  var yValuePoint = [];   
+  var count; //кол-во узлов интерполяции
   switch (NumbXValue)
   {
     case '1':
-     size = 3;
+     count = 3; //3 узла
       xValuePoint = [-1.5,0,1.5];
       yValuePoint = [-0.9975,0,0.9975];
-      for (var i =-3.14 ; i<3.14;i+=0.0314)
+      for (var i =-3.14 ; i<3.14;i+=0.0314)// цикл для вычисления координат точек функций
       {
         xValuesOriginalFunc.push(i);
         yValuesOriginalFunc.push(FunctionValueEvaluation(i));
-      }
-      for (var i = -3.14; i <= 3.14; i+=0.0314)
-      {
-      	xValuesInterpolatedFunction.push(i);
-        yValuesInterpolatedFunction.push(Polynomial(i,xValuePoint,size));        
-      }
-      drawChart( xValuesOriginalFunc,yValuesOriginalFunc,xValuesInterpolatedFunction, yValuesInterpolatedFunction,xValuePoint,yValuePoint);      
+        xValuesInterpolatedFunction.push(i);
+        yValuesInterpolatedFunction.push(Polynomial(i,xValuePoint,count));  
+      }     
+      drawChart( xValuesOriginalFunc,yValuesOriginalFunc,xValuesInterpolatedFunction, yValuesInterpolatedFunction,xValuePoint,yValuePoint);  //функция рисования графиков   
       break;
 
     case '2':
-    size = 5;
+    count = 5; //5 узлов
       xValuePoint = [-3.14, -1.57,0,1.57,3.14];
       yValuePoint = [0,-0.999999683,0,0.999999683,0];
-      for (var i =-4 ; i<4;i+=0.04)
+      for (var i =-4 ; i<4;i+=0.04) // цикл для вычисления координат точек функций
       {
         xValuesOriginalFunc.push(i);
         yValuesOriginalFunc.push(FunctionValueEvaluation(i));
-      }
-
-      for (i =-4 ; i<=4;i+=0.04)
-      {
-      	xValuesInterpolatedFunction.push(i);
-        yValuesInterpolatedFunction.push(Polynomial(i,xValuePoint,size));
-        
-      }
-      drawChart( xValuesOriginalFunc,yValuesOriginalFunc,xValuesInterpolatedFunction, yValuesInterpolatedFunction,xValuePoint,yValuePoint);  
+        xValuesInterpolatedFunction.push(i);
+        yValuesInterpolatedFunction.push(Polynomial(i,xValuePoint,count));
+      }      
+      drawChart( xValuesOriginalFunc,yValuesOriginalFunc,xValuesInterpolatedFunction, yValuesInterpolatedFunction,xValuePoint,yValuePoint);  //функция рисования графиков
     break;
 
     case '3':
-     size = 11;
+     count = 11; //11 узлов
       xValuePoint = [-3.14,-2.512,-1.884,-1.256,-0.628,0,0.628,1.256,1.884,2.512,3.14];
       yValuePoint = [0,-0.58882,-0.951351,-0.95086,-0.58753,0,0.58753,0.95086,0.951351,0.58882,0];
-      for (var i =-4 ; i<4;i+=0.04)
+      for (var i =-4 ; i<4;i+=0.04)// цикл для вычисления координат точек функций
       {
         xValuesOriginalFunc.push(i);
         yValuesOriginalFunc.push(FunctionValueEvaluation(i));
-      }
-      for (i =-4 ; i<=4;i+=0.04)
-      {
-      	xValuesInterpolatedFunction.push(i);
-        yValuesInterpolatedFunction.push(Polynomial(i,xValuePoint,size));        
-      }
-      drawChart( xValuesOriginalFunc,yValuesOriginalFunc,xValuesInterpolatedFunction, yValuesInterpolatedFunction,xValuePoint,yValuePoint);
-    
+        xValuesInterpolatedFunction.push(i);
+        yValuesInterpolatedFunction.push(Polynomial(i,xValuePoint,count)); 
+      }      
+      drawChart( xValuesOriginalFunc,yValuesOriginalFunc,xValuesInterpolatedFunction, yValuesInterpolatedFunction,xValuePoint,yValuePoint);//функция рисования графиков    
     break;
 
-    case '4':
-     size = 11;
+    case '4'://тут ошибка в заданной функции
+     count = 11; //11 узлов 
       xValuePoint = [-3.14,-2.512,-1.884,-1.256,-0.628,0,0.628,1.256,1.884,2.512,3.14];
       yValuePoint = [0,-0.58882,-0.951351,-0.95086,-0.58753,0,5,0.95086,0.951351,0.58882,0];
-      for (var i =-3.14 ; i<=3.14;i+=0.0628)
+      for (var i =-3.14 ; i<=3.14;i+=0.0628)// цикл для вычисления координат точек данной функций
       {
         xValuesOriginalFunc.push(i);
         yValuesOriginalFunc.push(FunctionValueEvaluation(i));
       }
 
-      yValuesOriginalFunc[60]=5;
+      yValuesOriginalFunc[60]=5; //преднамеренная ошибка
      
-      for (i =-4 ; i<=4;i+=0.04)
+      for (i =-4 ; i<=4;i+=0.04)// цикл для вычисления координат точек интерполированной функций
       {
       	xValuesInterpolatedFunction.push(i);
-        yValuesInterpolatedFunction.push(Polynomial(i,xValuePoint,size));        
+        yValuesInterpolatedFunction.push(Polynomial(i,xValuePoint,count));        
       }
-      drawChart( xValuesOriginalFunc,yValuesOriginalFunc,xValuesInterpolatedFunction, yValuesInterpolatedFunction,xValuePoint,yValuePoint);    
+      drawChart( xValuesOriginalFunc,yValuesOriginalFunc,xValuesInterpolatedFunction, yValuesInterpolatedFunction,xValuePoint,yValuePoint);//функция рисования графиков  
     break;
     default:
       alert("Error");
@@ -175,14 +163,14 @@ function InterpolateLagrangePolynomial(NumbXValue)
 
 }
 
-function Polynomial (x, xValuesOriginalFunc, size)
+function Polynomial (x, xValuesOriginalFunc, count) //вычисление значения интерполированной функции в заданной точке x, с узлами интерполяции xValuesOriginalFunc
 {
   var yValuesInterpolatedFunction = 0;
 
-  for (var i = 0; i < size; i++)
+  for (var i = 0; i < count; i++)
   {
     var basicsPol = 1;
-    for (var j = 0; j < size; j++)
+    for (var j = 0; j < count; j++)
     {
       if (j != i)
       {
@@ -230,11 +218,13 @@ function drawChart( xValueOriginalFunc,yValueOriginalFunc ,xValueInterpolatedFun
   	$(document).ready(function(){
    $.plot(out, [{
             data: data1,
+             label: "Исходная функция",
             lines: { show: true }
         },
         {
             data: data2,
             lines: { show: true },
+            label: "Интерполированная функия",
             points: { show: false}
         },
         {
